@@ -1,0 +1,258 @@
+[
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_authentication.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\layout\\activity_authentication.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\raw_mostafa_style.json.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\raw\\mostafa_style.json"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_add.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_add.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_add.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_add.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo_balck.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\drawable\\logo_balck.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_location.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_location.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_save.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_save.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\menu_map_options.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\menu\\map_options.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_save.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_save.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_no_data.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_no_data.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_no_data.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_no_data.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_location.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_location.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_add.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_add.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_no_data.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_no_data.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\layout_it_reminder.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\layout\\it_reminder.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_save.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_save.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_save.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_save.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\menu_main_menu.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\menu\\main_menu.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_location.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_location.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_add.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_add.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_no_data.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_no_data.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\layout_custom_signin_picker.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\layout\\custom_signin_picker.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_reminders.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\layout\\fragment_reminders.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_location.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_location.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_save.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_save.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_save.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_save.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_reminder_description.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\layout\\activity_reminder_description.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_location.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_location.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_select_location.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\layout\\fragment_select_location.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable_map.jpg.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\drawable\\map.jpg"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_location.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_location.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_save.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_save.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_no_data.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_no_data.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable_google_icon.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\drawable\\google_icon.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\navigation_nav_graph.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\navigation\\nav_graph.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_location.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_location.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable_gmail_icon.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\drawable\\gmail_icon.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_add.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_add.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_no_data.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_no_data.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_reminders.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\layout\\activity_reminders.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_add.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_add.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_save_reminder.xml.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\layout\\fragment_save_reminder.xml"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_no_data.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_no_data.png"
+    },
+    {
+        "merged": "F:\\code station\\LocationProject99\\starter\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_add.png.flat",
+        "source": "F:\\code station\\LocationProject99\\starter\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_add.png"
+    }
+]
