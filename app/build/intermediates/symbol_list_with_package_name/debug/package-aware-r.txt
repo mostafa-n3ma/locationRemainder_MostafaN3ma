@@ -1749,6 +1749,7 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
+id action_reminderListFragment_to_reminderDescriptionActivity2
 id action_saveReminderFragment_to_reminderListFragment
 id action_saveReminderFragment_to_selectLocationFragment
 id action_selectLocationFragment_to_saveReminderFragment
@@ -2011,6 +2012,7 @@ id rectangles
 id refreshLayout
 id reminderCardView
 id reminderDescription
+id reminderDescriptionActivity
 id reminderListFragment
 id reminderTitle
 id reminderssRecyclerView

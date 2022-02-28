@@ -86,12 +86,11 @@ class SaveReminderFragment : BaseFragment() {
             val latitude = _viewModel.latitude.value
             val longitude = _viewModel.longitude.value
             reminderDataItem = ReminderDataItem(title, description, location, latitude, longitude)
-            if (reminderDataItem!!.latitude == null || reminderDataItem!!.longitude == null || reminderDataItem!!.location == null || reminderDataItem!!.title == null || reminderDataItem!!.description == null) {
-                Toast.makeText(
-                    requireContext(),
-                    "please choose a Location first ",
-                    Toast.LENGTH_SHORT
-                ).show()
+            if (reminderDataItem!!.title==null ) {
+                _viewModel.showSnackBar.postValue(getString(R.string.err_enter_title))
+                return@setOnClickListener
+            }else if (reminderDataItem!!.location==null){
+                _viewModel.showSnackBar.postValue(getString(R.string.err_select_location))
                 return@setOnClickListener
             }
             try {

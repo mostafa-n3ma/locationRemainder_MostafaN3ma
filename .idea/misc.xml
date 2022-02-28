@@ -4,7 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/code station/LocationProject99/starter/app/src/main/res/layout/activity_authentication.xml" value="0.14130434782608695" />
+        <entry key="..\:/code station/LocationProject99/starter/app/src/main/res/layout/activity_reminders.xml" value="0.2546875" />
         <entry key="..\:/code station/LocationProject99/starter/app/src/main/res/layout/custom_signin_picker.xml" value="0.14130434782608695" />
+        <entry key="..\:/code station/LocationProject99/starter/app/src/main/res/layout/fragment_reminders.xml" value="0.14130434782608695" />
+        <entry key="..\:/code station/LocationProject99/starter/app/src/main/res/layout/fragment_save_reminder.xml" value="0.2546875" />
+        <entry key="..\:/code station/LocationProject99/starter/app/src/main/res/layout/fragment_select_location.xml" value="0.2546875" />
       </map>
     </option>
   </component>

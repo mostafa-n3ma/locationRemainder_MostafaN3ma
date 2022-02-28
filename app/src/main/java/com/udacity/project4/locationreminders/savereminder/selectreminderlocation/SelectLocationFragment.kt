@@ -83,7 +83,7 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
         //         send back the selected location details to the view model
         //         and navigate back to the previous fragment to save the reminder and add the geofence
         if (poiObject==null){
-            Toast.makeText(context, "please choose a place", Toast.LENGTH_SHORT).show()
+            _viewModel.showSnackBar.postValue(getString(R.string.err_select_location))
         }else{
             _viewModel.selectedPOI.postValue(poiObject)
             _viewModel.reminderSelectedLocationStr.postValue(poiObject?.name)

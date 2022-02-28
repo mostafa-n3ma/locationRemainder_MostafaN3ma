@@ -192,6 +192,8 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Mo
 		ADDED from F:\code station\LocationProject99\starter\app\src\main\AndroidManifest.xml:21:9-30
 activity#com.udacity.project4.locationreminders.ReminderDescriptionActivity
 ADDED from F:\code station\LocationProject99\starter\app\src\main\AndroidManifest.xml:28:9-30:20
+	android:parentActivityName
+		ADDED from F:\code station\LocationProject99\starter\app\src\main\AndroidManifest.xml:29:13-78
 	android:name
 		ADDED from F:\code station\LocationProject99\starter\app\src\main\AndroidManifest.xml:28:19-80
 meta-data#com.google.android.geo.API_KEY

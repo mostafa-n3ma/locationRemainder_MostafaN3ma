@@ -13,6 +13,7 @@ import com.udacity.project4.authentication.AuthenticationActivity
 import com.udacity.project4.base.BaseFragment
 import com.udacity.project4.base.NavigationCommand
 import com.udacity.project4.databinding.FragmentRemindersBinding
+import com.udacity.project4.locationreminders.ReminderDescriptionActivity
 import com.udacity.project4.utils.setDisplayHomeAsUpEnabled
 import com.udacity.project4.utils.setTitle
 import com.udacity.project4.utils.setup
@@ -44,11 +45,11 @@ class ReminderListFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _viewModel.isLogin.observe(viewLifecycleOwner, Observer { isLogin->
-            if (isLogin){
+        _viewModel.isLogin.observe(viewLifecycleOwner, Observer { isLogin ->
+            if (isLogin) {
 
-            }else{
-                val intent=Intent(context,AuthenticationActivity::class.java)
+            } else {
+                val intent = Intent(context, AuthenticationActivity::class.java)
                 startActivity(intent)
                 activity?.finish()
             }
@@ -77,8 +78,8 @@ class ReminderListFragment : BaseFragment() {
     }
 
     private fun setupRecyclerView() {
-        val adapter = RemindersListAdapter {
-
+        val adapter = RemindersListAdapter { selectedReminder: ReminderDataItem ->
+            startActivity(ReminderDescriptionActivity.newIntent(requireContext(), selectedReminder))
         }
 
 //        setup the recycler view using the extension function
