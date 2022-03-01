@@ -16,6 +16,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.viewModelScope
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.material.snackbar.Snackbar
@@ -24,9 +26,12 @@ import com.udacity.project4.R
 import com.udacity.project4.base.BaseFragment
 import com.udacity.project4.base.NavigationCommand
 import com.udacity.project4.databinding.FragmentSaveReminderBinding
+import com.udacity.project4.locationreminders.data.dto.ReminderDTO
+import com.udacity.project4.locationreminders.data.dto.Result
 import com.udacity.project4.locationreminders.geofence.GeofenceBroadcastReceiver
 import com.udacity.project4.locationreminders.reminderslist.ReminderDataItem
 import com.udacity.project4.utils.setDisplayHomeAsUpEnabled
+import kotlinx.coroutines.runBlocking
 import org.koin.android.ext.android.inject
 
 class SaveReminderFragment : BaseFragment() {
@@ -86,18 +91,16 @@ class SaveReminderFragment : BaseFragment() {
             val latitude = _viewModel.latitude.value
             val longitude = _viewModel.longitude.value
             reminderDataItem = ReminderDataItem(title, description, location, latitude, longitude)
-            if (reminderDataItem!!.title==null ) {
-                _viewModel.showSnackBar.postValue(getString(R.string.err_enter_title))
-                return@setOnClickListener
-            }else if (reminderDataItem!!.location==null){
-                _viewModel.showSnackBar.postValue(getString(R.string.err_select_location))
-                return@setOnClickListener
-            }
-            try {
+
                 _viewModel.validateAndSaveReminder(reminderDataItem!!)
-            } finally {
-                initGeofence(reminderDataItem!!)
-            }
+                _viewModel.isSaved.observe(viewLifecycleOwner, Observer { isSaved->
+                    if (isSaved){
+                        initGeofence(reminderDataItem!!)
+                    }
+                })
+
+//
+
 
 //            : use the user entered reminder details to:
 //             1) add a geofencing request

@@ -4,12 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import androidx.lifecycle.map
 import androidx.navigation.fragment.findNavController
 import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.auth.api.Auth
 import com.udacity.project4.R
 import com.udacity.project4.authentication.AuthenticationActivity
+import com.udacity.project4.authentication.FirebaseLiveData
 import com.udacity.project4.base.BaseFragment
 import com.udacity.project4.base.NavigationCommand
 import com.udacity.project4.databinding.FragmentRemindersBinding
@@ -45,16 +48,14 @@ class ReminderListFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _viewModel.isLogin.observe(viewLifecycleOwner, Observer { isLogin ->
-            if (isLogin) {
-
-            } else {
+        FirebaseLiveData().observe(viewLifecycleOwner, Observer { user->
+            if (user==null){
                 val intent = Intent(context, AuthenticationActivity::class.java)
                 startActivity(intent)
                 activity?.finish()
             }
-
         })
+
         binding.lifecycleOwner = this
         setupRecyclerView()
         binding.addReminderFAB.setOnClickListener {
