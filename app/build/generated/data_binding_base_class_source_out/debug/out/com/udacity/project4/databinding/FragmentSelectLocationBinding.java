@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
@@ -19,13 +20,17 @@ public abstract class FragmentSelectLocationBinding extends ViewDataBinding {
   @NonNull
   public final Button btnSave;
 
+  @NonNull
+  public final ConstraintLayout selectFragmentRoot;
+
   @Bindable
   protected SaveReminderViewModel mViewModel;
 
   protected FragmentSelectLocationBinding(Object _bindingComponent, View _root,
-      int _localFieldCount, Button btnSave) {
+      int _localFieldCount, Button btnSave, ConstraintLayout selectFragmentRoot) {
     super(_bindingComponent, _root, _localFieldCount);
     this.btnSave = btnSave;
+    this.selectFragmentRoot = selectFragmentRoot;
   }
 
   public abstract void setViewModel(@Nullable SaveReminderViewModel viewModel);

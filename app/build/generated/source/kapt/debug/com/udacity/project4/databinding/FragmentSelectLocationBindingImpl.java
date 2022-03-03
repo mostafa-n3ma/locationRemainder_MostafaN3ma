@@ -17,8 +17,6 @@ public class FragmentSelectLocationBindingImpl extends FragmentSelectLocationBin
         sViewsWithIds.put(R.id.btn_save, 1);
     }
     // views
-    @NonNull
-    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
     // variables
     // values
     // listeners
@@ -30,9 +28,9 @@ public class FragmentSelectLocationBindingImpl extends FragmentSelectLocationBin
     private FragmentSelectLocationBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (android.widget.Button) bindings[1]
+            , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]
             );
-        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
-        this.mboundView0.setTag(null);
+        this.selectFragmentRoot.setTag(null);
         setRootTag(root);
         // listeners
         invalidateAll();

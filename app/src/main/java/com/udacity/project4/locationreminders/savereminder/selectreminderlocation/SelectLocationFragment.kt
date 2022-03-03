@@ -3,27 +3,19 @@ package com.udacity.project4.locationreminders.savereminder.selectreminderlocati
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
-import android.content.Context.LOCATION_SERVICE
 import android.content.Intent
-import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.content.res.Resources
-import android.location.Criteria
-import android.location.LocationManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.*
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import com.google.android.gms.common.api.ResolvableApiException
-import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -33,6 +25,7 @@ import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PointOfInterest
 import com.google.android.material.snackbar.Snackbar
+import com.udacity.project4.BuildConfig
 import com.udacity.project4.R
 import com.udacity.project4.base.BaseFragment
 import com.udacity.project4.base.NavigationCommand
@@ -40,6 +33,7 @@ import com.udacity.project4.databinding.FragmentSelectLocationBinding
 import com.udacity.project4.locationreminders.savereminder.*
 import com.udacity.project4.utils.setDisplayHomeAsUpEnabled
 import org.koin.android.ext.android.inject
+import java.util.*
 
 class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
 
@@ -47,16 +41,13 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
     override val _viewModel: SaveReminderViewModel by inject()
     private lateinit var binding: FragmentSelectLocationBinding
     private lateinit var map: GoogleMap
-    private lateinit var locationManager: LocationManager
     private  var poiObject:PointOfInterest?=null
-    private val runningQOrLater =
-        android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q
+    private val randomLocationName="Random Location"
+    private var randomLatLong:LatLng?=null
     private val TAG = "SelectLocationFragment"
-    //location
-    private val REQUEST_LOCATION_PERMISSION = 1
 
-    private val FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION
-    private val COURSE_lOCATION = Manifest.permission.ACCESS_COARSE_LOCATION
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -71,7 +62,7 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
 //        : add the map setup implementation
         val mapFragment=childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        locationManager = context!!.getSystemService(LOCATION_SERVICE) as LocationManager
+        fusedLocationProviderClient = this.requireContext().let { LocationServices.getFusedLocationProviderClient(it) }
         binding.btnSave.setOnClickListener {
             onLocationSelected()
         }
@@ -83,7 +74,14 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
         //         send back the selected location details to the view model
         //         and navigate back to the previous fragment to save the reminder and add the geofence
         if (poiObject==null){
-            _viewModel.showSnackBar.postValue(getString(R.string.err_select_location))
+            if (randomLatLong==null){
+                _viewModel.showSnackBar.postValue(getString(R.string.err_select_location))
+            }else{
+                _viewModel.reminderSelectedLocationStr.postValue(randomLocationName)
+                _viewModel.latitude.postValue(randomLatLong?.latitude)
+                _viewModel.longitude.postValue(randomLatLong?.longitude)
+                _viewModel.navigationCommand.postValue(NavigationCommand.Back)
+            }
         }else{
             _viewModel.selectedPOI.postValue(poiObject)
             _viewModel.reminderSelectedLocationStr.postValue(poiObject?.name)
@@ -124,12 +122,87 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         map=googleMap
+        enableLocation()
         setMapStyle(map)
         setPoiClick(map)
-        if (locationPermissionIsGranted()){
-            map.isMyLocationEnabled=true
+        map.setOnMapLongClickListener {
+            randomLatLong=it
+            val snippet = String.format(
+                Locale.getDefault(),
+                "Lat: %1$.5f, Long: %2$.5f",
+                it.latitude,
+                it.longitude
+            )
+            map.addMarker(
+                MarkerOptions().position(it)
+                    .title(getString(R.string.dropped_pin))
+                    .snippet(snippet)
+            )
+        }
+
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun enableLocation() {
+        if (isPermissionGranted()) {
+            map.isMyLocationEnabled = true
+            fusedLocationProviderClient.lastLocation.addOnSuccessListener(requireActivity()) { location ->
+                if (location != null) {
+                    val userLatLng = LatLng(location.latitude, location.longitude)
+                    val zoomLevel = 15f
+                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(userLatLng, zoomLevel))
+                }
+            }
+        } else {
+            _viewModel.showErrorMessage.postValue(getString(R.string.err_select_location))
+            var permissionsArray = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
+            val requestCode = REQUEST_ACCESS_FINE_PERMISSIONS_REQUEST_CODE
+            requestPermissions(
+                permissionsArray,
+                requestCode
+            )
+        }
+
+    }
+
+    private fun isPermissionGranted() : Boolean {
+        return ActivityCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray) {
+        // Check if location permissions are granted and if so enable the
+        // location data layer.
+        if (requestCode == REQUEST_ACCESS_FINE_PERMISSIONS_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && (grantResults[0] != PackageManager.PERMISSION_GRANTED)) {
+                Snackbar.make(
+                    binding.selectFragmentRoot,
+                    R.string.permission_denied_explanation,
+                    Snackbar.LENGTH_LONG
+                )
+                    .setAction(R.string.settings) {
+                        startActivity(Intent().apply {
+                            action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                            data = Uri.fromParts("package",BuildConfig.APPLICATION_ID, null)
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                        })
+                    }.show()
+            }else if (grantResults.isNotEmpty()&&grantResults[0]==PackageManager.PERMISSION_GRANTED) {
+                enableLocation()
+            }
         }
     }
+
+
+
+
+
 
 
     private fun setMapStyle(map: GoogleMap) {
@@ -157,18 +230,9 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
         }
 
     }
-    private fun locationPermissionIsGranted(): Boolean {
-        return ActivityCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
-    }
+
+
 
 
 }
-private const val REQUEST_FOREGROUND_AND_BACKGROUND_PERMISSION_RESULT_CODE = 33
-private const val REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE = 34
-private const val REQUEST_TURN_DEVICE_LOCATION_ON = 29
-private const val TAG = "SaveReminderFragment"
-private const val LOCATION_PERMISSION_INDEX = 0
-private const val BACKGROUND_LOCATION_PERMISSION_INDEX = 1
+private const val REQUEST_ACCESS_FINE_PERMISSIONS_REQUEST_CODE = 34

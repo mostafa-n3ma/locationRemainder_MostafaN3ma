@@ -24,12 +24,9 @@ class SaveReminderViewModel(val app: Application, val dataSource: ReminderDataSo
     val longitude = MutableLiveData<Double>()
 
 
-    private val _isSaved=MutableLiveData<Boolean>()
-    val isSaved:LiveData<Boolean> get() = _isSaved
 
-    init {
-        _isSaved.value=false
-    }
+
+
 
     /**
      * Clear the live data objects to start fresh next time the view model gets called
@@ -41,7 +38,6 @@ class SaveReminderViewModel(val app: Application, val dataSource: ReminderDataSo
         selectedPOI.value = null
         latitude.value = null
         longitude.value = null
-        _isSaved.value=false
     }
 
     /**
@@ -50,7 +46,6 @@ class SaveReminderViewModel(val app: Application, val dataSource: ReminderDataSo
     fun validateAndSaveReminder(reminderData: ReminderDataItem) {
         if (validateEnteredData(reminderData)) {
             saveReminder(reminderData)
-
         }
     }
 
@@ -71,12 +66,9 @@ class SaveReminderViewModel(val app: Application, val dataSource: ReminderDataSo
                     reminderData.id
                 )
             )
-            if (dataSource.getReminder(reminderData.id) is Result<ReminderDTO>){
-                _isSaved.value=true
                 showLoading.value = false
                 showToast.value = app.getString(R.string.reminder_saved)
-                navigationCommand.value = NavigationCommand.Back
-            }
+                navigationCommand.value=NavigationCommand.Back
 
         }
     }
