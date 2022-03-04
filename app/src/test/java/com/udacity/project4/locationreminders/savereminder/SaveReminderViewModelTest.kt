@@ -80,7 +80,6 @@ class SaveReminderViewModelTest {
        assertThat(reminderViewModel.showLoading.getOrAwaitValue(),`is`(true) )
        mainCoroutineRule.resumeDispatcher()
 
-       assertThat(reminderViewModel.isSaved.getOrAwaitValue(),`is`(true))
        assertThat(reminderViewModel.showLoading.getOrAwaitValue(),`is`(false))
        assertThat(reminderViewModel.showToast.getOrAwaitValue(),`is`("Reminder Saved !"))
 

@@ -1,21 +1,14 @@
 package com.udacity.project4
 
+import android.app.Activity
 import android.app.Application
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.core.app.ActivityScenario
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.IdlingRegistry
-import androidx.test.espresso.NoMatchingViewException
-import androidx.test.espresso.ViewInteraction
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.replaceText
-import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -30,7 +23,6 @@ import com.udacity.project4.util.DataBindingIdlingResource
 import com.udacity.project4.util.monitorActivity
 import com.udacity.project4.utils.EspressoIdlingResource
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -41,14 +33,7 @@ import org.koin.core.context.stopKoin
 import org.koin.dsl.module
 import org.koin.test.AutoCloseKoinTest
 import org.koin.test.get
-import org.mockito.ArgumentMatchers
-import org.mockito.Mock
-import org.mockito.Mockito.matches
-import org.mockito.Mockito.mock
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers
-import com.udacity.project4.utils.EspressoIdlingResource.countingIdlingResource
-import com.udacity.project4.utils.wrapEspressoIdlingResource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Rule
 
@@ -61,6 +46,9 @@ class RemindersActivityTest :
 
     private lateinit var repository: ReminderDataSource
     private lateinit var appContext: Application
+
+    @get:Rule
+    var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     /**
      * As we use Koin as a Service Locator Library to develop our code, we'll also use Koin to test our code.
@@ -111,49 +99,87 @@ class RemindersActivityTest :
     fun unRegisterIdlingResource() {
         IdlingRegistry.getInstance().unregister(EspressoIdlingResource.countingIdlingResource)
         IdlingRegistry.getInstance().unregister(dataBindingIdlingResource)
-        runBlocking {  repository.deleteAllReminders() }
+        runBlocking { repository.deleteAllReminders() }
 
     }
 
     //    TODO: add End to End testing to the app
     @Test
-    fun navigationTest() = runBlocking {
-        val activityScenario = ActivityScenario.launch(RemindersActivity::class.java)
-        dataBindingIdlingResource.monitorActivity(activityScenario)
-        repository.saveReminder(ReminderDTO("Mostafa", "Kotlin Dev", "Iraq", 568325.0, 3594221.0))
-        onView(withId(R.id.addReminderFAB)).perform(click())
-        onView(withId(R.id.saveReminder)).perform(click())
+    fun clickAddFab_clickSaveFab_showSnackBar_clickSelectLocation_navigateBackThrowFragments() =
+        runBlocking {
+            val activityScenario = ActivityScenario.launch(RemindersActivity::class.java)
+            dataBindingIdlingResource.monitorActivity(activityScenario)
+            repository.saveReminder(
+                ReminderDTO(
+                    "Mostafa",
+                    "Kotlin Dev",
+                    "Iraq",
+                    568325.0,
+                    3594221.0
+                )
+            )
+            onView(withId(R.id.addReminderFAB)).perform(click())
+            onView(withId(R.id.saveReminder)).perform(click())
 
 //        Test SnackBar
             onView(withId(com.google.android.material.R.id.snackbar_text))
                 .check(matches(withText(R.string.err_enter_title)))
 
 
-        onView(withId(R.id.reminderTitle)).perform(replaceText("Title1"))
-        onView(withId(R.id.reminderDescription)).perform(replaceText("Description1"))
+            onView(withId(R.id.reminderTitle)).perform(replaceText("Title1"))
+            onView(withId(R.id.reminderDescription)).perform(replaceText("Description1"))
 
-        onView(withId(R.id.saveReminder)).perform(click())
+            onView(withId(R.id.selectLocation)).perform(click())
+            onView(withId(R.id.btn_save)).perform(click())
+
+            pressBack()
+            pressBack()
+
+            onView(withText("Mostafa")).perform(click())
+            onView(withText("Mostafa")).check(matches(isDisplayed()))
+            onView(withText("Kotlin Dev")).check(matches(isDisplayed()))
+            onView(withText("Iraq")).check(matches(isDisplayed()))
+
+            pressBack()
 
 
+            activityScenario.close()
+
+        }
+
+
+    @Test
+    fun saveReminderScreen_showToastMessage() = runBlocking {
+
+        val activityScenario = ActivityScenario.launch(RemindersActivity::class.java)
+        dataBindingIdlingResource.monitorActivity(activityScenario)
+
+        onView(withId(R.id.addReminderFAB)).perform(click())
+        onView(withId(R.id.reminderTitle)).perform(typeText("Title"))
+
+        onView(withId(R.id.reminderDescription)).perform(typeText("Description"))
 
 
         onView(withId(R.id.selectLocation)).perform(click())
+        onView(withId(R.id.map)).perform(longClick())
         onView(withId(R.id.btn_save)).perform(click())
 
-        pressBack()
-        pressBack()
+        onView(withId(R.id.saveReminder)).perform(click())
 
-        onView(withText("Mostafa")).perform(click())
-        onView(withText("Mostafa")).check(matches(isDisplayed()))
-        onView(withText("Kotlin Dev")).check(matches(isDisplayed()))
-        onView(withText("Iraq")).check(matches(isDisplayed()))
-
-        pressBack()
-
+        onView(withText(R.string.reminder_saved))
+            .inRoot(ToastMatcher().apply {
+                matches(isDisplayed())
+            })
 
         activityScenario.close()
-
     }
 
+    private fun getActivity(activityScenario: ActivityScenario<RemindersActivity>): Activity? {
+        var activity: Activity? = null
+        activityScenario.onActivity {
+            activity = it
+        }
+        return activity
+    }
 
 }

@@ -85,7 +85,7 @@ class SaveReminderFragment : BaseFragment() {
             val latitude = _viewModel.latitude.value
             val longitude = _viewModel.longitude.value
             reminderDataItem = ReminderDataItem(title, description, location, latitude, longitude)
-            if (reminderDataItem!=null){
+            if (_viewModel.validateEnteredData(reminderDataItem!!)){
                 checkPermissions_And_LocationSettings()
             }
 
