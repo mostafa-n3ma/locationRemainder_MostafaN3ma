@@ -16,7 +16,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.startIntentSenderForResult
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
@@ -114,11 +116,9 @@ class SaveReminderFragment : BaseFragment() {
             requestCode = REQUEST_FOREGROUND_AND_BACKGROUND_PERMISSION_REQUEST_CODE
             permissions += Manifest.permission.ACCESS_BACKGROUND_LOCATION
         }
-        ActivityCompat.requestPermissions(
-            requireActivity(),
-            permissions,
-            requestCode
-        )
+       requestPermissions(
+           permissions, requestCode
+       )
     }
 
     override fun onRequestPermissionsResult(
@@ -157,10 +157,30 @@ class SaveReminderFragment : BaseFragment() {
                 try {
                     // Show the dialog by calling startResolutionForResult(),
                     // and check the result in onActivityResult().
-                    exception.startResolutionForResult(
-                        requireActivity(),
-                        REQUEST_TURN_DEVICE_LOCATION_ON
-                    )
+//                    exception.startResolutionForResult(
+//                        requireActivity(),
+//                        REQUEST_TURN_DEVICE_LOCATION_ON
+//                    )
+
+                    startIntentSenderForResult(
+                        exception.resolution.intentSender,
+                        REQUEST_TURN_DEVICE_LOCATION_ON,
+                        null,
+                        0, 0, 0,
+                        null)
+
+
+
+//                    startIntentSenderForResult(
+//                        geofencePendingIntent.intentSender,
+//                        REQUEST_TURN_DEVICE_LOCATION_ON,
+//                        null,
+//                        0,
+//                        0,
+//                        0,
+//                        null
+//                    )
+
                 } catch (sendEx: IntentSender.SendIntentException) {
                     Log.d(TAG, "Error geting location settings resolution: " + sendEx.message)
                 }
